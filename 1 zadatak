@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    char p[100];
+    char trazeni;
+    int pocetak, kraj;
+    cin >> trazeni >> pocetak >> kraj;
+    for (int i = 0;i < 100;i++) {
+        p[i] = 'a' + rand() % 26;
+    }
+    bool nadjen = false;
+    for (int i = pocetak;i <= kraj;i++) {
+        if (p[i] == trazeni) {
+            nadjen = true;
+            break;
+        }
+    }
+    cout << nadjen;
+    return 0;
+}
