@@ -22,7 +22,7 @@ int main()
 	int x;
 	cin >> x;
 	int d = 100;
-	int g = 200;
+	int g = 199;
 	bool trazen = false;
 	while (1) {
 		int s = (d + g) / 2;
