@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+void ispis(int b) {
+	if (b < 0) {
+		return;
+	}
+	cout << b << endl;
+	ispis(b - 1);
+}
+
+
+int main()
+{
+	int b;
+	cin >> b;
+	ispis(b);
+}
