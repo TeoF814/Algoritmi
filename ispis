@@ -2,7 +2,7 @@
 using namespace std;
 
 void ispis(int b) {
-	if (b == 0) {
+	if (b < 0) {
 		return;
 	}
 	ispis(b - 1);
