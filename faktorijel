@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int faktorijel(int b, int i) {
+	if (i == b)
+		return i;
+	return i * faktorijel(b, i+1);
+}
+
+
+int main()
+{
+	int b;
+  int i = 1;
+	cin >> b;
+	cout << faktorijel(b, i);
+}
