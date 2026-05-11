@@ -1,0 +1,31 @@
+#include <iostream>
+#include "graphics.h"
+#pragma comment(lib,"graphics.lib")
+using namespace std;
+
+int main()
+{
+    int x, y, r, v = 5, y_2;
+    cin >> x;
+    cin >> y;
+    cin >> r;
+    y_2 = r;
+    initwindow(x,y);
+    while(true){
+        cleardevice();
+        circle(x / 2, y_2, r);
+        y_2 += v;
+
+        if (y_2 + r >= y)
+            v = -v;
+        if (y_2 - r <= 0)
+            v = -v;
+
+        delay(10);
+    }
+
+
+    getch();
+    closegraph();
+    return 0;
+}
