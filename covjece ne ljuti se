@@ -1,0 +1,109 @@
+#include <iostream>
+#include "graphics.h"
+#pragma comment(lib,"graphics.lib")
+using namespace std;
+
+int main()
+{
+    int x, y;
+    cin >> x;
+    cin >> y;
+    initwindow(x, y);
+    setbkcolor(BLACK);
+    cleardevice();
+
+    int r = 20;      
+    int razmak = 10;      
+
+    setcolor(RED);
+    setfillstyle(SOLID_FILL, RED);
+    circle(razmak + r, razmak + r, r);
+    floodfill(razmak + r, razmak + r, RED);
+    circle(r * 3 + razmak * 2, razmak + r, r);
+    floodfill(r * 3 + razmak * 2, razmak + r, RED);
+    circle(razmak + r, r * 3 + razmak * 2, r);
+    floodfill(razmak + r, r * 3 + razmak * 2, RED);
+    circle(r * 3 + razmak * 2, r * 3 + razmak * 2, r);
+    floodfill(r * 3 + razmak * 2, r * 3 + razmak * 2, RED);
+
+    setcolor(BLUE);
+    setfillstyle(SOLID_FILL, BLUE);
+    circle(x - (r * 3 + razmak * 3), razmak + r, r);
+    floodfill(x - (r * 3 + razmak * 3), razmak + r, BLUE);
+    circle(x - (r + razmak * 2), razmak + r, r);
+    floodfill(x - (r + razmak * 2), razmak + r, BLUE);
+    circle(x - (r * 3 + razmak * 3), r * 3 + razmak * 2, r);
+    floodfill(x - (r * 3 + razmak * 3), r * 3 + razmak * 2, BLUE);
+    circle(x - (r + razmak * 2), r * 3 + razmak * 2, r);
+    floodfill(x - (r + razmak * 2), r * 3 + razmak * 2, BLUE);
+
+    setcolor(YELLOW);
+    setfillstyle(SOLID_FILL, YELLOW);
+    circle(razmak + r, y - (r * 3 + razmak * 3), r);
+    floodfill(razmak + r, y - (r * 3 + razmak * 3), YELLOW);
+    circle(r * 3 + razmak * 2, y - (r * 3 + razmak * 3), r);
+    floodfill(r * 3 + razmak * 2, y - (r * 3 + razmak * 3), YELLOW);
+    circle(razmak + r, y - (r + razmak * 2), r);
+    floodfill(razmak + r, y - (r + razmak * 2), YELLOW);
+    circle(r * 3 + razmak * 2, y - (r + razmak * 2), r);
+    floodfill(r * 3 + razmak * 2, y - (r + razmak * 2), YELLOW);
+
+    setcolor(GREEN);
+    setfillstyle(SOLID_FILL, GREEN);
+    circle(x - (r * 3 + razmak * 3), y - (r * 3 + razmak * 3), r);
+    floodfill(x - (r * 3 + razmak * 3), y - (r * 3 + razmak * 3), GREEN);
+    circle(x - (r + razmak * 2), y - (r * 3 + razmak * 3), r);
+    floodfill(x - (r + razmak * 2), y - (r * 3 + razmak * 3), GREEN);
+    circle(x - (r * 3 + razmak * 3), y - (r + razmak * 2), r);
+    floodfill(x - (r * 3 + razmak * 3), y - (r + razmak * 2), GREEN);
+    circle(x - (r + razmak * 2), y - (r + razmak * 2), r);
+    floodfill(x - (r + razmak * 2), y - (r + razmak * 2), GREEN);
+
+
+    setcolor(WHITE);
+    setfillstyle(SOLID_FILL, WHITE);
+
+    for (int i = 1; i < 6; i++) {
+        int cx = x/2 + (r * 4 + razmak * 2) - (i - 1) * (r * 2 + razmak);
+        int cy = razmak+r;
+        circle(cx, cy, r);
+        floodfill(cx,cy, WHITE);
+    }
+
+    int cx_2 = x / 2 + (r * 4 + razmak * 2);
+    int cy_2 = razmak + r;
+
+    for (int j = 1; j < 4; j++) {
+        int y = cy_2 + j * (r * 2 + razmak);
+        circle(cx_2, y, r);
+        floodfill(cx_2, y, WHITE);
+    }
+    
+
+    int cx_3 = x / 2 + (r * 4 + razmak * 2) - 4 * (r * 2 + razmak);
+    int cy_3 = razmak + r;
+
+    for (int j = 1; j < 4; j++) {
+        int y = cy_3 + j * (r * 2 + razmak);
+        circle(cx_3, y, r);
+        floodfill(cx_3, y, WHITE);
+    }
+
+    for (int j = 1; j < 4; j++) {
+        int x = cx_2 + j * (r * 2 + razmak);  
+        int y = cy_2 + 3 * (r * 2 + razmak);   
+        circle(x, y, r);
+        floodfill(x, y, WHITE);
+    }
+
+    for (int j = 1; j < 4; j++) {
+        int x = cx_3 - j * (r * 2 + razmak);   
+        int y = cy_3 + 3 * (r * 2 + razmak);   
+        circle(x, y, r);
+        floodfill(x, y, WHITE);
+    }
+
+    getch();
+    closegraph();
+    return 0;
+}
